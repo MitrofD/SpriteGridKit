@@ -78,7 +78,7 @@ open class SpriteGridKit: SKNode {
     private(set) var yStep = CGFloat.zero
     private var cachedColumnsCount: Int?
 
-    init(size: CGSize, cellSize: CGSize, insets: Insets = Insets(-1)) {
+    public init(size: CGSize, cellSize: CGSize, insets: Insets = Insets(-1)) {
         self.cellSize = cellSize
         self.size = size
         self.insets = insets
