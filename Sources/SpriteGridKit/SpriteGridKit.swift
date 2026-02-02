@@ -27,13 +27,13 @@ open class SpriteGridKit: SKNode {
         }
     }
     
-    public var insets: Insets {
+    open var insets: Insets {
         didSet {
             resetIfChanges(old: oldValue, current: insets)
         }
     }
     
-    public var size: CGSize {
+    open var size: CGSize {
         didSet {
             resetIfChanges(old: oldValue, current: size)
         }
@@ -41,7 +41,7 @@ open class SpriteGridKit: SKNode {
 
     private var _moveSpeed = CGFloat(1) // Скорость движения
     
-    public var moveSpeed: CGFloat {
+    open var moveSpeed: CGFloat {
         get {
             _moveSpeed
         }
@@ -70,12 +70,12 @@ open class SpriteGridKit: SKNode {
     private var direction = CGFloat(1)
     
     private var grid = [Int: [Cell]]()
-    private(set) var isFilled = false
+    public private(set) var isFilled = false
     private var appendToTop: () -> Void = {}
     private var topCounter = Int.zero
     private var appendToBottom: () -> Void = {}
     private var bottomCounter = Int.zero
-    private(set) var yStep = CGFloat.zero
+    public private(set) var yStep = CGFloat.zero
     private var cachedColumnsCount: Int?
 
     public init(size: CGSize, cellSize: CGSize, insets: Insets = Insets(-1)) {
@@ -204,7 +204,7 @@ open class SpriteGridKit: SKNode {
         build()
     }
     
-    public func update(_ time: TimeInterval) {
+    open func update(_ time: TimeInterval) {
         guard isFilled, isMoving else { return }
 
         if lastUpdateTime == .zero {
@@ -338,7 +338,7 @@ open class SpriteGridKit: SKNode {
         }
     }
     
-    func stop() {
+    public func stop() {
         if isMoving, !isInstantMove {
             didStop() // триггер остановки
         }
