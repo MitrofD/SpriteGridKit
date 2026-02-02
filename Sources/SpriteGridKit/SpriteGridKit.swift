@@ -21,19 +21,19 @@ open class SpriteGridKit: SKNode {
     open func didRemoveCell(_ cell: Cell) {}
     open func didRemoveRow(_ row: Int, cellsOfRow: [Cell]) {}
     
-    var cellSize: CGSize {
+    public var cellSize: CGSize {
         didSet {
             resetIfChanges(old: oldValue, current: cellSize)
         }
     }
     
-    var insets: Insets {
+    public var insets: Insets {
         didSet {
             resetIfChanges(old: oldValue, current: insets)
         }
     }
     
-    var size: CGSize {
+    public var size: CGSize {
         didSet {
             resetIfChanges(old: oldValue, current: size)
         }
@@ -41,7 +41,7 @@ open class SpriteGridKit: SKNode {
 
     private var _moveSpeed = CGFloat(1) // Скорость движения
     
-    var moveSpeed: CGFloat {
+    public var moveSpeed: CGFloat {
         get {
             _moveSpeed
         }
@@ -104,7 +104,7 @@ open class SpriteGridKit: SKNode {
         didDestroy()
     }
     
-    func cellPosition(for row: Int, column: Int) -> CGPoint {
+    open func cellPosition(for row: Int, column: Int) -> CGPoint {
         CGPoint(x: CGFloat(column) * cellSize.width, y: CGFloat(row) * cellSize.height)
     }
     
@@ -383,35 +383,35 @@ open class SpriteGridKit: SKNode {
         }
     }
     
-    func westCell(at point: Point) -> Cell? {
+    open func westCell(at point: Point) -> Cell? {
         cell(at: point.row, column: point.column - 1)
     }
     
-    func eastCell(at point: Point) -> Cell? {
+    open func eastCell(at point: Point) -> Cell? {
         cell(at: point.row, column: point.column + 1)
     }
     
-    func southCell(at point: Point) -> Cell? {
+    open func southCell(at point: Point) -> Cell? {
         cell(at: point.row - 1, column: point.column)
     }
     
-    func northCell(at point: Point) -> Cell? {
+    open func northCell(at point: Point) -> Cell? {
         cell(at: point.row + 1, column: point.column)
     }
     
-    func northWestCell(at point: Point) -> Cell? {
+    open func northWestCell(at point: Point) -> Cell? {
         cell(at: point.row + 1, column: point.column - 1)
     }
     
-    func northEastCell(at point: Point) -> Cell? {
+    open func northEastCell(at point: Point) -> Cell? {
         cell(at: point.row + 1, column: point.column + 1)
     }
     
-    func southWestCell(at point: Point) -> Cell? {
+    open func southWestCell(at point: Point) -> Cell? {
         cell(at: point.row - 1, column: point.column - 1)
     }
     
-    func southEastCell(at point: Point) -> Cell? {
+    open func southEastCell(at point: Point) -> Cell? {
         cell(at: point.row - 1, column: point.column + 1)
     }
 
@@ -510,8 +510,8 @@ public extension SpriteGridKit {
     }
     
     struct Point: CustomStringConvertible, Hashable {
-        var row: Int
-        var column: Int
+        public var row: Int
+        public var column: Int
         
         static var zero: Point {
             .init(row: .zero, column: .zero)
@@ -523,8 +523,8 @@ public extension SpriteGridKit {
     }
     
     struct Cell: CustomStringConvertible, Hashable {
-        let point: Point
-        let position: CGPoint
+        public let point: Point
+        public let position: CGPoint
         
         public init(row: Int, column: Int, position: CGPoint) {
             self.position = position
