@@ -1,5 +1,5 @@
 //
-//  Grid.swift
+//  SpriteGridKit.swift
 //  Deliveryman
 //
 //  Created by Dmitriy Mitrofansky on 28.09.24.
@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-open class Grid: SKNode {
+open class SpriteGridKit: SKNode {
     open func willBuild() {}
     open func didBuild() {}
     open func willDestroy() {}
@@ -470,7 +470,7 @@ open class Grid: SKNode {
     }
 }
 
-public extension Grid {
+public extension SpriteGridKit {
     struct Insets: Equatable {
         let top: Int
         let right: Int
