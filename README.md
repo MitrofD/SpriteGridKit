@@ -16,7 +16,7 @@ SpriteGridKit is a lightweight and flexible grid system for SpriteKit. It allows
 Add the following to your `Package.swift` dependencies:
 
 ```swift
-.package(url: "https://github.com/yourusername/SpriteGridKit.git", from: "1.0.0")
+.package(url: "https://github.com/MitrofD/SpriteGridKit.git", from: "1.0.0")
 ```
 
 and add `SpriteGridKit` to your target dependencies:
