@@ -51,7 +51,7 @@ open class SpriteGridKit: SKNode {
         }
     }
     
-    let gridNode = SKNode()
+    public let gridNode = SKNode()
     
     private var lastUpdateTime = TimeInterval.zero
     private var totalMovedDistance = CGFloat.zero
@@ -91,12 +91,12 @@ open class SpriteGridKit: SKNode {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func build() {
+    public func build() {
         guard !isFilled else { return }
         reset()
     }
     
-    func destroy() {
+    public func destroy() {
         guard isFilled else { return }
         willDestroy()
         stopAndReset()
@@ -127,7 +127,7 @@ open class SpriteGridKit: SKNode {
         cachedColumnsCount ?? maxColumnsCount
     }
 
-    func reset() {
+    public func reset() {
         stopAndReset()
 
         if isFilled {
@@ -204,7 +204,7 @@ open class SpriteGridKit: SKNode {
         build()
     }
     
-    func update(_ time: TimeInterval) {
+    public func update(_ time: TimeInterval) {
         guard isFilled, isMoving else { return }
 
         if lastUpdateTime == .zero {
@@ -259,7 +259,7 @@ open class SpriteGridKit: SKNode {
         lastProcessedSteps = currentSteps
     }
     
-    func moveByStep(duration: TimeInterval, count: CGFloat? = nil) {
+    public func moveByStep(duration: TimeInterval, count: CGFloat? = nil) {
         stopAndBuild()
         guard duration > .zero else { return }
 
@@ -280,7 +280,7 @@ open class SpriteGridKit: SKNode {
         }
     }
     
-    func move(distance: CGFloat, duration: TimeInterval = .zero) {
+    public func move(distance: CGFloat, duration: TimeInterval = .zero) {
         stopAndBuild()
         let absDistance = abs(distance)
         direction = distance >= .zero ? 1 : -1
@@ -515,6 +515,11 @@ public extension SpriteGridKit {
         
         public static var zero: Point {
             .init(row: .zero, column: .zero)
+        }
+        
+        public init(row: Int, column: Int) {
+            self.row = row
+            self.column = column
         }
         
         public var description: String {
