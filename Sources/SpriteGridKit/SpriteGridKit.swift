@@ -21,7 +21,7 @@ open class SpriteGridKit: SKNode {
     open func didRemoveCell(_ cell: Cell) {}
     open func didRemoveRow(_ row: Int, cellsOfRow: [Cell]) {}
     
-    public var cellSize: CGSize {
+    open var cellSize: CGSize {
         didSet {
             resetIfChanges(old: oldValue, current: cellSize)
         }
