@@ -472,10 +472,10 @@ open class SpriteGridKit: SKNode {
 
 public extension SpriteGridKit {
     struct Insets: Equatable {
-        let top: Int
-        let right: Int
-        let bottom: Int
-        let left: Int
+        public let top: Int
+        public let right: Int
+        public let bottom: Int
+        public let left: Int
         
         public init(top: Int, right: Int, bottom: Int, left: Int) {
             self.top = top
@@ -513,7 +513,7 @@ public extension SpriteGridKit {
         public var row: Int
         public var column: Int
         
-        static var zero: Point {
+        public static var zero: Point {
             .init(row: .zero, column: .zero)
         }
         
@@ -540,7 +540,7 @@ public extension SpriteGridKit {
             "Cell (point: \(point), position: \(position))"
         }
         
-        static var zero: Cell {
+        public static var zero: Cell {
             .init(point: .zero, position: .zero)
         }
     }
